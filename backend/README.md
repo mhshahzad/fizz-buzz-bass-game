@@ -2,7 +2,7 @@
 
 #### Prerequisites
 - Python 3.7+
-- `pip` (Python package installer)
+- `pip3` (Python package installer)
 
 #### Installation Steps
 
@@ -29,28 +29,21 @@
 
 4. **Install Dependencies**
    ```sh
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 
 #### Running the Application
 
-1. **Start the FastAPI Server**
    ```sh
-   uvicorn main:app --host 0.0.0.0 --port 80
+   fastapi run main.py
    ```
 
-2. **Access the Application**
-   Open your web browser and navigate to:
-   ```
-   http://0.0.0.0:8000/{number}
-   ```
-   Replace `{number}` with the positive integer you want to test.
 
 #### Example Usage
 
 - **For a number that is a multiple of 3:**
-  ```
-  http://0.0.0.0:8000/3
+  ```sh
+  curl -X POST "http://0.0.0.0:8000" -H "Content-Type: application/json" -d '{"number": 3}'
   ```
   Response:
   ```json
@@ -60,8 +53,8 @@
   ```
 
 - **For a number that is a multiple of 5:**
-  ```
-  http://0.0.0.0:8000/5
+  ```sh
+  curl -X POST "http://0.0.0.0:8000" -H "Content-Type: application/json" -d '{"number": 5}'
   ```
   Response:
   ```json
@@ -71,8 +64,8 @@
   ```
 
 - **For a number that is a multiple of both 3 and 5:**
-  ```
-  http://0.0.0.0:8000/15
+  ```sh
+  curl -X POST "http://0.0.0.0:8000" -H "Content-Type: application/json" -d '{"number": 15}'
   ```
   Response:
   ```json
@@ -82,8 +75,8 @@
   ```
 
 - **For any other positive number:**
-  ```
-  http://0.0.0.0:8000/7
+  ```sh
+  curl -X POST "http://0.0.0.0:8000" -H "Content-Type: application/json" -d '{"number": 7}'
   ```
   Response:
   ```json
@@ -95,8 +88,8 @@
 #### Error Handling
 
 - **For a non-positive integer:**
-  ```
-  http://0.0.0.0:8000/-1
+  ```sh
+  curl -X POST "http://0.0.0.0:8000" -H "Content-Type: application/json" -d '{"number": -1}'
   ```
   Response:
   ```json

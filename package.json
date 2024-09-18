@@ -5,7 +5,7 @@
   "scripts": {
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
     "start:frontend": "cd frontend && npm run preview",
-    "start:backend": "cd backend && uvicorn main:app --host 0.0.0.0 --port 80",
+    "start:backend": "cd backend && fastapi run main.py",
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && pip3 install -r requirements.txt",
     "install": "npm run install:frontend && npm run install:backend && npm install concurrently"
